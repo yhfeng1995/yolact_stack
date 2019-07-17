@@ -20,7 +20,7 @@ pip install roslibpy
 
     ```$xslt
     cd ${YOLACT_ROOT_PATH}
-    python ros_server --host --port --srv_name --srv_type --model_pth --cuda_device
+    python ros_server --host --port --img_height --img_width --srv_name --srv_type --model_pth --cuda_device
     ```
 
 2. On local compute, **firstly start rosbridge server**, then start your own call service node:
