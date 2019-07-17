@@ -1,0 +1,21 @@
+<launch>
+    <arg name="dataset_dir" default="/home/yonghui/Datasets/TUM"/>
+    <arg name="seq_name" default="rgbd_dataset_freiburg1_xyz"/>
+    <arg name="associate_path" default="/home/yonghui/Datasets/TUM/rgbd_dataset_freiburg1_xyz/associate.txt"/>
+    <arg name="visual" default="true"/>
+    <arg name="class_name_path" default="/home/yonghui/catkin_ws_autolabor/src/yolact_stack/yolact_client/data/coco.names"/>
+
+<!--    <node pkg="rosbridge_server" type="rosbridge_websocket" name="rosbridge_websocket"/>-->
+
+    <node pkg="yolact_client" type="yolact_client_node" name="yolact_client" output="screen">
+        <param name="visual" type="bool" value="$(arg visual)"/>
+        <param name="class_name_path" type="str" value="$(arg class_name_path)"/>
+    </node>
+
+    <node pkg="yolact_client" type="tum_publish_node" name="tum_publish" output="screen">
+        <param name="dataset_dir" value="$(arg dataset_dir)"/>
+        <param name="seq_name" type="str" value="$(arg seq_name)"/>
+        <param name="associate_path" type="str" value="$(arg associate_path)"/>
+    </node>
+
+</launch>

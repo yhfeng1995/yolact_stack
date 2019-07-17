@@ -1,0 +1,1 @@
+semantic_msgs/Bbox[] bboxes

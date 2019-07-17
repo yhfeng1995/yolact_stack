@@ -1,0 +1,3 @@
+sensor_msgs/CompressedImage image
+---
+semantic_msgs/BboxList result
